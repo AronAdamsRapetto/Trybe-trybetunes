@@ -13,6 +13,7 @@ class FormLogin extends React.Component {
           data-testid="login-name-input"
           onChange={ handleChange }
           value={ nameLogin }
+          maxLength="15"
         />
         <button
           type="button"
