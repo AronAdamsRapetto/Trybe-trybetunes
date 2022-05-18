@@ -1,0 +1,48 @@
+.container-login, .form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.image-login {
+  height: 158px;
+  margin-bottom: 50px;
+  width: 208px;
+}
+
+.form {
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  height: 314px;
+  width: 697px;
+}
+
+.form input, .form button {
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  font-weight: 400;
+  margin: 10px 0;
+  width: 519px;
+}
+
+.form input {
+  border: 1px solid #e1e5eb;
+  color: #6b7588;
+  font-size: 14px;
+  height: 49px;
+}
+
+.form button {
+  background-color: #003be5;
+  border-radius: 2px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  color: white;
+  font-size: 16px;
+  height: 40px;
+  padding: 8px 32px;
+}
+
+.form button:disabled {
+  background-color: gray;
+}
+

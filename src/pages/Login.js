@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import Loading from '../components/Loading';
 import FormLogin from '../components/FormLogin';
 import { createUser } from '../services/userAPI';
+import './Login.css';
 
 class Login extends React.Component {
   state = {
@@ -33,7 +34,12 @@ class Login extends React.Component {
   render() {
     const { isDisable, nameLogin, isLoaded, LoggedIn } = this.state;
     return (
-      <div data-testid="page-login">
+      <div data-testid="page-login" className="container-login">
+        <img
+          src="https://s3-alpha-sig.figma.com/img/cb6b/b1a4/61f8022ad1b66f0294f86a1998c00d51?Expires=1653868800&Signature=VEgrgMIAJtYWCYlNDcbt1rY2Ivy2DOAAJlvO3scAXMG0kMZRxHmq3DoBR30kzMSqZnT-OLrJMkZQnkOCO323Kt5ek2RcAAl3r-BhdG2kxrk9tOWn-ER37toqeheS4Dz25SgxtNWK5SrjgADVxQLLAJ61~Szfv~lYXyzFqFEjAhgzJqCNUxeBCfzltbSlw74O9eDTeaHJsW6YzOYnZL-AiXsddKd8XlDunxj82VNc6EP6wSS21J2NvYU8nvK47JIETwbId8HstJMMi0dg6wDzdgRFs9AAz~fUFdohlL20ikws4xPC1Z18uO80AXJ-ezkge4LiqcL7FsdvG8fgSL9Ryg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+          alt="Imagem Logo"
+          className="image-login"
+        />
         {
           isLoaded ? <FormLogin
             handleChange={ this.handleChange }

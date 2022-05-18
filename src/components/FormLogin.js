@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../pages/Login.css';
 
 class FormLogin extends React.Component {
   render() {
     const { handleChange, handleClick, nameLogin, isDisable } = this.props;
     return (
-      <form>
+      <form className="form">
         <input
           type="text"
           placeholder="Nome"
