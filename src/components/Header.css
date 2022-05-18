@@ -1,4 +1,4 @@
-header {
+.header-container {
   align-items: center;
   background-color: #023031;
   display: flex;
@@ -6,7 +6,7 @@ header {
   width: 100%;
 }
 
-header img {
+.header-container img {
   height: 96px;
   margin: -30px 0 15px 10px;
   width: 117px;
@@ -34,4 +34,25 @@ header img {
   height: 36.44px;
   margin: 0 5px;
   width: 36.44px;
+}
+
+.container-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  width: 100%;
+}
+
+.link-navigation {
+  background-color: #f0f2f5;
+  color: #2fc18c;
+  font-size: 28px;
+  font-weight: 700;
+  padding: 25px 173px;
+  text-decoration: none;
+}
+
+.link-navigation:hover {
+  background-color: #036b52;
+  color: white;
 }
