@@ -22,7 +22,6 @@ class Album extends React.Component {
       const responseFavorites = await getFavoriteSongs();
       const idFavorites = responseFavorites.map(({ trackId }) => trackId);
       this.setState({ isLoaded: true, idFavoriteMusics: [...idFavorites] });
-      console.log(idFavorites);
     });
   }
 
@@ -55,7 +54,7 @@ class Album extends React.Component {
   render() {
     const { musics, isLoaded, idFavoriteMusics } = this.state;
     return (
-      <div data-testid="page-album">
+      <div className="page-album" data-testid="page-album">
         <Header />
         {
           isLoaded ? (
@@ -98,14 +97,13 @@ class Album extends React.Component {
                       previewUrl={ previewUrl }
                       trackId={ trackId }
                       handleChange={ this.handleFavoriteChange }
-                      isLoaded={ isLoaded }
                       favoriteMusics={ idFavoriteMusics }
                     />
                   ))
                 }
               </div>
             </section>
-          ) : <Loading />
+          ) : <Loading className="loading" />
         }
       </div>
     );

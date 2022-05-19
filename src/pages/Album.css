@@ -1,6 +1,14 @@
+.page-album {
+  text-align: center;
+}
+
 .album-container {
   display: flex;
   justify-content: space-evenly;
+}
+
+.artist-container {
+  margin: 0 50px;
 }
 
 .artist-container img {
@@ -26,6 +34,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
+  margin: 0 50px;
   padding: 5px;
   width: 600px;
 }

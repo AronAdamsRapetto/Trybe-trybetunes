@@ -1,0 +1,14 @@
+.page-favorites {
+  text-align: center;
+}
+
+.favorite-track {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.favorite-track img {
+  border-radius: 50px;
+  margin-right: -40px;
+}
