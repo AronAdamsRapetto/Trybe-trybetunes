@@ -38,7 +38,9 @@
 
 .container-links {
   display: flex;
+  height: 56px;
   justify-content: space-between;
+  margin-bottom: 80px;
   margin-top: 25px;
   width: 100%;
 }
