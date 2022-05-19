@@ -1,0 +1,31 @@
+.album-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.artist-container img {
+  border-radius: 6px;
+  width: 290px;
+}
+
+.album-name {
+  color: #023031;
+  font-size: 36px;
+  font-weight: 700;
+  width: 330px;
+}
+
+.artist-name {
+  font-size: 24px;
+  font-weight: 300;
+  margin-top: -20px;
+  width: 255px;
+}
+
+.track {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  width: 600px;
+}
