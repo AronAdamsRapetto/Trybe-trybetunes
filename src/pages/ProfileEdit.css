@@ -1,0 +1,77 @@
+.form-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 288px;
+}
+
+.perfil-image {
+  align-items: center;
+  display: flex;
+}
+
+.perfil-image img {
+  border-radius: 50px;
+  height: 80px;
+  margin-right: 10px;
+  width: 80px;
+}
+
+.perfil-image input {
+  border: 1px solid #dadada;
+  border-radius: 2px;
+  height: 37px;
+  width: 192px;
+}
+
+.input-infos, .input-description {
+  color: #3d495c;
+  display: flex;
+  flex-direction: column;
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.edit-button, .input-infos, .input-description {
+  margin: 20px 0;
+}
+
+.input-infos span {
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.input-infos input {
+  height: 37px;
+}
+
+.input-description textarea {
+  height: 80px;
+}
+
+.input-infos input, .input-description textarea {
+  border: none;
+  border-bottom: 1px solid #3d495c;
+  border-radius: 2px;
+  color: #3d495c;
+  font-size: 14px;
+  font-weight: 400;
+  width: 288px;
+}
+
+.perfil-image input:focus, .input-infos input:focus, .input-description textarea:focus {
+  background-color: #f0f2f5;
+}
+
+.edit-button {
+  background-color: #003be5;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 8px 32px;
+}
