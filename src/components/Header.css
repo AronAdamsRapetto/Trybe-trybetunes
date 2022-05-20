@@ -36,6 +36,13 @@
   width: 36.44px;
 }
 
+.container-icon img {
+  border-radius: 50px;
+  height: 36.44px;
+  margin: 0;
+  width: 36.44px;
+}
+
 .container-links {
   display: flex;
   height: 56px;

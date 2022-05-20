@@ -7,14 +7,21 @@
 }
 
 .image-container {
+  align-items: center;
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
+.image-container img {
+  border-radius: 50px;
+  height: 80px;
+  width: 80px;
+}
+
 .edit-link {
   border: 1px solid #003be5;
-  border-radius: 10px;
+  border-radius: 15px;
   color: #003be5;
   font-size: 14px;
   font-weight: 400;
@@ -28,11 +35,6 @@
 .edit-link:hover {
   background-color: #003be5;
   color: white;
-}
-
-.image-container img {
-  height: 80px;
-  width: 80px;
 }
 
 .infos-container {

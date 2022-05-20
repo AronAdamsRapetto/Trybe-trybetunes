@@ -1,7 +1,9 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
-import { getUser } from '../services/userAPI';
+import { getUser, updateUser } from '../services/userAPI';
 import './ProfileEdit.css';
 
 class ProfileEdit extends React.Component {
@@ -11,6 +13,7 @@ class ProfileEdit extends React.Component {
     userEmail: '',
     userImage: '',
     userDescription: '',
+    isDisable: true,
   }
 
   componentDidMount() {
@@ -27,7 +30,41 @@ class ProfileEdit extends React.Component {
   }
 
   handleChange = ({ target: { value, name } }) => {
-    this.setState({ [name]: value });
+    this.setState({ [name]: value }, () => {
+      const {
+        userName,
+        userEmail,
+        userImage,
+        userDescription,
+      } = this.state;
+      if (userName.length === 0
+        || userEmail.length === 0
+        || userImage.length === 0
+        || userDescription.length === 0
+        || !userEmail.includes('@')
+        || !userEmail.includes('.com')
+      ) {
+        this.setState({ isDisable: true });
+      } else {
+        this.setState({ isDisable: false });
+      }
+    });
+  }
+
+  redirect = () => <Redirect to="/profile" />
+
+  handleClick = () => {
+    const { userName, userEmail, userImage, userDescription } = this.state;
+    const { history } = this.props;
+    this.setState({ isLoaded: false }, async () => {
+      await updateUser({
+        name: userName,
+        email: userEmail,
+        image: userImage,
+        description: userDescription,
+      });
+      this.setState({ isLoaded: true }, () => history.push('/profile'));
+    });
   }
 
   render() {
@@ -37,6 +74,7 @@ class ProfileEdit extends React.Component {
       userEmail,
       userImage,
       userName,
+      isDisable,
     } = this.state;
     return (
       <div data-testid="page-profile-edit">
@@ -45,10 +83,12 @@ class ProfileEdit extends React.Component {
           isLoaded ? (
             <section className="form-container">
               <div className="perfil-image">
-                <img src="https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?w=2000" alt="" />
+                <img src={ userImage } alt={ userName } />
                 <input
                   type="text"
-                  id="inputimagem"
+                  name="userImage"
+                  value={ userImage }
+                  onChange={ this.handleChange }
                   data-testid="edit-input-image"
                   placeholder="Insira um link"
                 />
@@ -58,6 +98,9 @@ class ProfileEdit extends React.Component {
                 <span>Fique à vontade para usar seu nome social</span>
                 <input
                   type="text"
+                  name="userName"
+                  value={ userName }
+                  onChange={ this.handleChange }
                   id="inputName"
                   data-testid="edit-input-name"
                   placeholder="PiRaDeX"
@@ -68,6 +111,9 @@ class ProfileEdit extends React.Component {
                 <span>Escolha um e-mail que consulte diariamente</span>
                 <input
                   type="email"
+                  name="userEmail"
+                  value={ userEmail }
+                  onChange={ this.handleChange }
                   id="inputEmail"
                   data-testid="edit-input-email"
                   placeholder="joaodasilva@gmail.com"
@@ -77,11 +123,22 @@ class ProfileEdit extends React.Component {
                 Descrição
                 <textarea
                   id="inputDescricao"
+                  name="userDescription"
+                  value={ userDescription }
+                  onChange={ this.handleChange }
                   data-testid="edit-input-description"
                   placeholder="Sobre mim"
                 />
               </label>
-              <button className="edit-button" type="button">Salvar</button>
+              <button
+                className="edit-button"
+                type="button"
+                data-testid="edit-button-save"
+                disabled={ isDisable }
+                onClick={ this.handleClick }
+              >
+                Salvar
+              </button>
             </section>
           ) : <Loading />
         }
@@ -89,5 +146,11 @@ class ProfileEdit extends React.Component {
     );
   }
 }
+
+ProfileEdit.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default ProfileEdit;

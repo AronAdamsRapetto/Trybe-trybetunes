@@ -42,6 +42,7 @@
   font-size: 12px;
   font-style: italic;
   font-weight: 400;
+  margin-bottom: 5px;
 }
 
 .input-infos input {
@@ -50,9 +51,11 @@
 
 .input-description textarea {
   height: 80px;
+  margin-top: 5px;
 }
 
 .input-infos input, .input-description textarea {
+  background-color: #f0f2f5;
   border: none;
   border-bottom: 1px solid #3d495c;
   border-radius: 2px;
@@ -60,10 +63,6 @@
   font-size: 14px;
   font-weight: 400;
   width: 288px;
-}
-
-.perfil-image input:focus, .input-infos input:focus, .input-description textarea:focus {
-  background-color: #f0f2f5;
 }
 
 .edit-button {
@@ -74,4 +73,8 @@
   font-size: 16px;
   font-weight: 400;
   padding: 8px 32px;
+}
+
+.edit-button:disabled {
+  background-color: gray;
 }
