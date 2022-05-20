@@ -1,0 +1,54 @@
+.userInfo-container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 288px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.edit-link {
+  border: 1px solid #003be5;
+  border-radius: 10px;
+  color: #003be5;
+  font-size: 14px;
+  font-weight: 400;
+  height: 17px;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  width: 119px;
+}
+
+.edit-link:hover {
+  background-color: #003be5;
+  color: white;
+}
+
+.image-container img {
+  height: 80px;
+  width: 80px;
+}
+
+.infos-container {
+  color: #3d495c;
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  margin-bottom: 40px;
+  width: 288px;
+}
+
+.infos-container span {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.infos-container h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
