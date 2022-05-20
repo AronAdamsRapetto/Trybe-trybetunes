@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
@@ -51,8 +50,6 @@ class ProfileEdit extends React.Component {
     });
   }
 
-  redirect = () => <Redirect to="/profile" />
-
   handleClick = () => {
     const { userName, userEmail, userImage, userDescription } = this.state;
     const { history } = this.props;
@@ -63,7 +60,7 @@ class ProfileEdit extends React.Component {
         image: userImage,
         description: userDescription,
       });
-      this.setState({ isLoaded: true }, () => history.push('/profile'));
+      history.push('/profile');
     });
   }
 
