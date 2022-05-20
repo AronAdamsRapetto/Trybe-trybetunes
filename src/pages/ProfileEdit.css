@@ -75,6 +75,11 @@
   padding: 8px 32px;
 }
 
+.edit-button:hover {
+  cursor: pointer;
+  padding: 10px 34px;
+}
+
 .edit-button:disabled {
   background-color: gray;
 }

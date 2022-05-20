@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Loading from '../components/Loading';
 import FormLogin from '../components/FormLogin';
 import { createUser } from '../services/userAPI';
@@ -10,7 +10,6 @@ class Login extends React.Component {
     isDisable: true,
     nameLogin: '',
     isLoaded: true,
-    LoggedIn: false,
   }
 
   handleChange = ({ target: { value } }) => {
@@ -25,14 +24,15 @@ class Login extends React.Component {
 
   handleClick = () => {
     const { nameLogin } = this.state;
+    const { history } = this.props;
     this.setState({ isLoaded: false }, async () => {
       await createUser({ name: nameLogin });
-      this.setState({ LoggedIn: true });
+      history.push('/search');
     });
   }
 
   render() {
-    const { isDisable, nameLogin, isLoaded, LoggedIn } = this.state;
+    const { isDisable, nameLogin, isLoaded } = this.state;
     return (
       <div data-testid="page-login" className="container-login">
         <img
@@ -48,12 +48,15 @@ class Login extends React.Component {
             isDisable={ isDisable }
           /> : <Loading />
         }
-        {
-          LoggedIn && <Redirect to="/search" />
-        }
       </div>
     );
   }
 }
+
+Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default Login;

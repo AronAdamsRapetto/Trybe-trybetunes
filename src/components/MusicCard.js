@@ -27,7 +27,8 @@ class MusicCard extends React.Component {
                 type="checkbox"
                 data-testid={ `checkbox-music-${trackId}` }
                 onChange={ handleChange }
-                checked={ favoriteMusics.some((musicId) => musicId === trackId) }
+                checked={ favoriteMusics
+                  .some((musicId) => musicId.toString() === trackId) }
               />
               Favorita
             </label>
@@ -41,9 +42,9 @@ class MusicCard extends React.Component {
 MusicCard.propTypes = {
   trackName: PropTypes.string,
   previewUrl: PropTypes.string,
-  trackId: PropTypes.number,
+  trackId: PropTypes.string,
   handleChange: PropTypes.func,
-  favoriteMusics: PropTypes.arrayOf(PropTypes.number),
+  favoriteMusics: PropTypes.arrayOf(PropTypes.string),
 };
 
 MusicCard.defaultProps = {

@@ -24,30 +24,32 @@ class ProfileEdit extends React.Component {
         userEmail: user.email,
         userImage: user.image,
         userDescription: user.description,
-      });
+      }, this.validateInputs);
     });
   }
 
+  validateInputs = () => {
+    const {
+      userName,
+      userEmail,
+      userImage,
+      userDescription,
+    } = this.state;
+    if (userName.length === 0
+      || userEmail.length === 0
+      || userImage.length === 0
+      || userDescription.length === 0
+      || !userEmail.includes('@')
+      || !userEmail.includes('.com')
+    ) {
+      this.setState({ isDisable: true });
+    } else {
+      this.setState({ isDisable: false });
+    }
+  }
+
   handleChange = ({ target: { value, name } }) => {
-    this.setState({ [name]: value }, () => {
-      const {
-        userName,
-        userEmail,
-        userImage,
-        userDescription,
-      } = this.state;
-      if (userName.length === 0
-        || userEmail.length === 0
-        || userImage.length === 0
-        || userDescription.length === 0
-        || !userEmail.includes('@')
-        || !userEmail.includes('.com')
-      ) {
-        this.setState({ isDisable: true });
-      } else {
-        this.setState({ isDisable: false });
-      }
-    });
+    this.setState({ [name]: value }, this.validateInputs());
   }
 
   handleClick = () => {
@@ -70,12 +72,13 @@ class ProfileEdit extends React.Component {
       userDescription,
       userEmail,
       userImage,
-      userName,
       isDisable,
+      userName,
     } = this.state;
     return (
       <div data-testid="page-profile-edit">
         <Header />
+        {/* <p className="gambiarra">Editar perfil</p> */}
         {
           isLoaded ? (
             <section className="form-container">

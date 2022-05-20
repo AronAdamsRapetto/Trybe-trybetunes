@@ -16,7 +16,7 @@ class Favorites extends React.Component {
   componentDidMount() {
     this.setState({ isLoaded: false }, async () => {
       const responseFavoriteMusics = await getFavoriteSongs();
-      const idMusics = responseFavoriteMusics.map(({ trackId }) => trackId);
+      const idMusics = responseFavoriteMusics.map(({ trackId }) => trackId.toString());
 
       this.setState({ isLoaded: true, favoriteMusicsId: [...idMusics] });
 
@@ -36,7 +36,7 @@ class Favorites extends React.Component {
           .find(({ trackId }) => trackId === parseInt(target.id, 10));
         await removeSong(unfavoriteMusic);
         const newFavoriteMusics = await getFavoriteSongs();
-        const newIdMusics = newFavoriteMusics.map(({ trackId }) => trackId);
+        const newIdMusics = newFavoriteMusics.map(({ trackId }) => trackId.toString());
         this.setState({
           favoriteMusics: [...newFavoriteMusics],
           favoriteMusicsId: [...newIdMusics],
@@ -70,7 +70,7 @@ class Favorites extends React.Component {
                           <div className="favorite-track" key={ trackId }>
                             <img src={ artworkUrl30 } alt="artwork album" />
                             <MusicCard
-                              trackId={ trackId }
+                              trackId={ trackId.toString() }
                               previewUrl={ previewUrl }
                               trackName={ trackName }
                               favoriteMusics={ favoriteMusicsId }
